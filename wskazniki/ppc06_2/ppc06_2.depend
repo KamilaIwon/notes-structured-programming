@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1652893476 source:c:\users\kamila\desktop\ps\wskazniki\ppc06_2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

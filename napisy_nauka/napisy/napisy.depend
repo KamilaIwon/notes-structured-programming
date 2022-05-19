@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1652975226 source:c:\users\kamila\desktop\ps\napisy_nauka\napisy\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
