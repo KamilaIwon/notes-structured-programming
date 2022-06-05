@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1653579019 source:d:\cwiczenia\powtorka\powtorki---ps\podzialnapliki\kolokwium2nauka\main.c
+	<stdio.h>
+	"komputer1.h"
+	<string.h>
+
+1653577116 d:\cwiczenia\powtorka\powtorki---ps\podzialnapliki\kolokwium2nauka\komputer1.h
+	<stdbool.h>
+
+1653577228 source:d:\cwiczenia\powtorka\powtorki---ps\podzialnapliki\kolokwium2nauka\komputer1.c
+	<stdio.h>
+	<string.h>
+	"komputer1.h"
+

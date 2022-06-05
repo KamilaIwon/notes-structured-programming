@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1653569468 source:d:\cwiczenia\powtorka\powtorki---ps\podzialnapliki\podzialnapliki\main.c
+	<stdio.h>
+	<stdlib.h>
+	"nauka.h"
+
+1653569547 d:\cwiczenia\powtorka\powtorki---ps\podzialnapliki\podzialnapliki\nauka.h
+
+1653569468 source:d:\cwiczenia\powtorka\powtorki---ps\podzialnapliki\podzialnapliki\nauka.c
+	<stdio.h>
+	"nauka.h"
+
