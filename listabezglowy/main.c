@@ -231,6 +231,27 @@ struct element* usunujem(struct element* Lista)
     return Lista;
 };
 
+int rowneszesciany(struct element*Lista1, struct element*Lista2 )
+{
+    int suma1=0 , suma2 = 0;
+    struct element*temp1=Lista1;
+    struct element*temp2=Lista2;
+
+    while(temp1!=NULL)
+    {
+        suma1 += (temp1->i * temp1->i * temp1->i);
+        temp1=temp1->next;
+    }
+
+    while(temp2!=NULL)
+    {
+        suma2 += (temp2->i * temp2->i * temp2->i);
+        temp2=temp2->next;
+    }
+    if(suma1==suma2) return 1;
+    else
+        return 0;
+}
 
 int main()
 {
@@ -252,5 +273,17 @@ int main()
     wyswietlListeBezGlowy(l1);
     l1 = usunujem(l1);
     wyswietlListeBezGlowy(l1);
+    struct element* l2 = utworz();
+    l2 = dodaj(l2,-1);
+    l2 = dodaj(l2,1);
+    l2 = dodaj(l2,8);
+    wyswietlListeBezGlowy(l2);
+
+    struct element* l3 = utworz();
+    l3 = dodaj(l3,-1);
+    l3 = dodaj(l3,1);
+    l3 = dodaj(l3,8);
+    wyswietlListeBezGlowy(l2);
+    printf("\nczy sumy szescianow sa rowne: %d", rowneszesciany(l3,l2));
     return 0;
 }
