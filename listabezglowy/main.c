@@ -58,9 +58,33 @@ int znajdzminimumparzyste(struct element*Lista)
         }
         temp=temp->next;
     }
-    printf("----\n");
+
     return minimum;
 }
+
+//znajdz ostatni element parzysty
+int znajdzostniep(struct element*Lista)
+{
+    int niep;
+    struct element*temp=Lista;
+    if(temp==NULL)
+    {
+        return -1;
+    }
+
+
+    while(temp!=NULL)
+    {
+        if((temp->i) % 2 != 0)
+        {
+            niep = temp->i;
+        }
+        temp=temp->next;
+    }
+    printf("----\n");
+    return niep;
+}
+
 
 //czyszczenie listy
 struct element* wyczysc(struct element *Lista)
@@ -125,11 +149,94 @@ struct element* usun(struct element* Lista, int a)
     return Lista;
 };
 
+//usun ostatni element nieparzysty
+struct element* usunniep(struct element* Lista)
+{
+    int niep;
+
+    if (Lista==NULL)
+        return Lista;
+
+    struct element*wsk,*wsk2;
+
+    struct element*temp=Lista;
+    while(temp!=NULL)
+    {
+        if((temp->i) % 2 != 0)
+        {
+            niep = temp->i;
+        }
+        temp=temp->next;
+    }
+    wsk=Lista;
+    if (Lista->i==niep)
+    {
+        Lista=Lista->next;
+        free(wsk);
+    }
+    else
+    {
+        while((wsk->next!=NULL)&&(wsk->next->i!=niep))
+        {
+            wsk=wsk->next;
+        }
+        if(wsk->next!=NULL)
+        {
+            wsk2=wsk->next;
+            wsk->next=wsk2->next;
+            free(wsk2);
+        }
+    }
+    return Lista;
+};
+//usun pierwszy element ujemny
+
+struct element* usunujem(struct element* Lista)
+{
+    int ujemn;
+
+    if (Lista==NULL)
+        return Lista;
+
+    struct element*wsk,*wsk2;
+
+    struct element*temp=Lista;
+    while(temp!=NULL)
+    {
+        if(temp->i < 0)
+        {
+            ujemn = temp->i;
+            break;
+        }
+    }
+    wsk=Lista;
+    if (Lista->i==ujemn)
+    {
+        Lista=Lista->next;
+        free(wsk);
+    }
+    else
+    {
+        while((wsk->next!=NULL)&&(wsk->next->i!=ujemn))
+        {
+            wsk=wsk->next;
+        }
+        if(wsk->next!=NULL)
+        {
+            wsk2=wsk->next;
+            wsk->next=wsk2->next;
+            free(wsk2);
+        }
+    }
+    return Lista;
+};
+
+
 int main()
 {
     struct element* l1 = utworz();
     l1 = dodaj(l1,-20);
-    l1 = dodaj(l1,-14);
+    l1 = dodaj(l1,-15);
     l1 = dodaj(l1,-7);
     l1 = dodaj(l1,-31);
     struct element * wsk = l1;
@@ -138,6 +245,12 @@ int main()
         printf("%d\n",wsk->i);
         wsk=wsk->next;
     }
-    printf("\n%d",znajdzminimumparzyste(l1));
+    printf("\n\n najmniejsza parzysta liczba to: %d",znajdzminimumparzyste(l1));
+    printf("\n\n ostatnia liczba nieparzysta to: %d",znajdzostniep(l1));
+    printf("\n\n lista po: \n");
+    l1 = usunniep(l1);
+    wyswietlListeBezGlowy(l1);
+    l1 = usunujem(l1);
+    wyswietlListeBezGlowy(l1);
     return 0;
 }
