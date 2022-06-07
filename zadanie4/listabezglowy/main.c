@@ -6,7 +6,7 @@ struct element
     int i;
     struct element * next;
 };
-
+//dodajemy element
 struct element* dodaj(struct element*Lista, int a)
 {
     struct element * wsk = malloc(sizeof(struct element));
@@ -14,12 +14,12 @@ struct element* dodaj(struct element*Lista, int a)
     wsk->next=Lista;
     return wsk;
 };
-
+//tworzymy liste
 struct element * utworz()
 {
     return NULL;
 };
-
+//wyswietlamy liste bez glowy
 void wyswietlListeBezGlowy(struct element*Lista)
 {
     struct element*temp=Lista;
@@ -34,7 +34,7 @@ void wyswietlListeBezGlowy(struct element*Lista)
     }
     printf("----\n");
 }
-
+//znajdujemy minimalny element parzysty
 int znajdzminimumparzyste(struct element*Lista)
 {
     int minimum;
@@ -230,7 +230,7 @@ struct element* usunujem(struct element* Lista)
     }
     return Lista;
 };
-
+//czy suma szescianow elementow listy jest rowna
 int rowneszesciany(struct element*Lista1, struct element*Lista2 )
 {
     int suma1=0 , suma2 = 0;
