@@ -39,13 +39,22 @@ void parzyste(int n)
     parzyste(n-1);
 
 }
+//podaj wynik: 1^3 + 2^3 + ... + n^3
+int szescian(int n)
+{
+    if(n>0) return n*n*n + szescian(n-1);
+    return 0;
+
+}
+
 
 int main()
 {
     printf("wynik: %d", rekurencja(0));
     printf("\nwynik: %d", rekurencja(3));
     printf("\nwynik: %d", task_6(3));
-    printf("\nwynik: %d", rekurecja1(4));
+    printf("\nwynik: %d", rekurecja1(1));
     parzyste(10);
+    printf("\nszescian: %d", szescian(4));
     return 0;
 }
