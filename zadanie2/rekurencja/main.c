@@ -31,7 +31,7 @@ int rekurecja1(int n)
 
     return (3 * (pow(10,(n-1))) + rekurecja1(n-1)) + rekurecja1(n-1);
 }
-
+//wyswietla liczby parzyste od 1 do n
 void parzyste(int n)
 {
     if(n==1) return;
