@@ -13,6 +13,20 @@ void showtable(int **tab, int n, int m)
         printf("\n");
     }
 }
+// liczy ile jest elementow parzystych w 2 tablicach
+int ileparzwdwoch(int **tab1, int**tab2, int n, int m)
+{
+    int ile1=0, ile2=0;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            if(tab1[i][j]%2==0) ile1++;
+            if(tab2[i][j]%2==0) ile2++;
+        }
+    }
+    return ile1+ile2;
+}
 
 //stworz nowa tablice elementow
 int **utworz(int n, int m)
@@ -143,13 +157,24 @@ int main()
     int **tab = (int**) malloc(sizeof(int*)*2);
     *tab = (int*)malloc(sizeof(int)*3); //przypisujemy pamiec
     *(tab+1) = (int*)malloc(sizeof(int)*3); //przypisujemy pamiec
-    *(*(tab+0)+0) = 4;
-    *(*(tab+0)+1) = 5;
-    *(*(tab+0)+2) = 8;
-    *(*(tab+1)+0) = 32;
-    *(*(tab+1)+1) = 22;
-    *(*(tab+1)+2) = 3;
+    *(*(tab+0)+0) = 2;
+    *(*(tab+0)+1) = 3;
+    *(*(tab+0)+2) = -3;
+    *(*(tab+1)+0) = 1;
+    *(*(tab+1)+1) = 4;
+    *(*(tab+1)+2) = 8;
     showtable(tab,2,3);
+
+
+    int **tab4 = (int**) malloc(sizeof(int*)*2);
+    *tab4 = (int*)malloc(sizeof(int)*3); //przypisujemy pamiec
+    *(tab4+1) = (int*)malloc(sizeof(int)*3); //przypisujemy pamiec
+    *(*(tab4+0)+0) = -3;
+    *(*(tab4+0)+1) = 0;
+    *(*(tab4+0)+2) = 2;
+    *(*(tab4+1)+0) = 7;
+    *(*(tab4+1)+1) = 4;
+    *(*(tab4+1)+2) = 0;
 
     //tworzymy tablice tablic za pomoca funkcji
     int **tab2 = utworz(4,4);
@@ -198,5 +223,12 @@ int main()
     przestaw(tab2,4,4);
     printf("--------\n");
     showtable(tab2,4,4);
+
+    //liczba el
+    printf("--------\ntablica1:\n");
+    showtable(tab,2,3);
+    printf("--------\ntablica2:\n");
+    showtable(tab4,2,3);
+    printf("\nile jest razem parzystych elementow: %d", ileparzwdwoch(tab,tab4,2,3));
     return 0;
 }

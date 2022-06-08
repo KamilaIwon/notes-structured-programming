@@ -252,6 +252,18 @@ int rowneszesciany(struct element*Lista1, struct element*Lista2 )
     else
         return 0;
 }
+//mnozymy kazdy element przez liczbe w
+
+struct element* pomnoz(struct element*Lista, int w)
+{
+    struct element * wsk=Lista;
+    while(wsk!=NULL)
+    {
+        wsk->i *= w;
+        wsk=wsk->next;
+    }
+    return Lista;
+}
 
 int main()
 {
@@ -285,5 +297,16 @@ int main()
     l3 = dodaj(l3,8);
     wyswietlListeBezGlowy(l2);
     printf("\nczy sumy szescianow sa rowne: %d", rowneszesciany(l3,l2));
+
+    printf("\n------------------------\n");
+
+    struct element* l5 = utworz();
+    l5 = dodaj(l5,11);
+    l5 = dodaj(l5,10);
+    l5 = dodaj(l5,1);
+    wyswietlListeBezGlowy(l5);
+    l5 = pomnoz(l5,4);
+    wyswietlListeBezGlowy(l5);
+
     return 0;
 }
