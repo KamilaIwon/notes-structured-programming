@@ -32,7 +32,7 @@ int rekurecja1(int n)
     return (3 * (pow(10,(n-1))) + rekurecja1(n-1)) + rekurecja1(n-1);
 }
 //wyswietla liczby parzyste od 1 do n
-void parzyste(int n)
+void parzyste(unsigned int n)
 {
     if(n==1) return;
     if(n%2==0) printf("\n%d", n);
@@ -47,6 +47,13 @@ int szescian(int n)
 
 }
 
+int sumapodzprzez6i7(unsigned int n)
+{
+    if(n==0) return 0;
+    if(n%5==0 || n%7==0) return n + sumapodzprzez6i7(n-1);
+    return sumapodzprzez6i7(n-1);
+
+}
 
 int main()
 {
@@ -56,5 +63,6 @@ int main()
     printf("\nwynik: %d", rekurecja1(1));
     parzyste(10);
     printf("\nszescian: %d", szescian(4));
+    printf("\nsuma podzielnych przez 6 i 7: %d", sumapodzprzez6i7(10));
     return 0;
 }
