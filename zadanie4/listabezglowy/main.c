@@ -277,17 +277,16 @@ int rowneszesciany(struct element*Lista1, struct element*Lista2 )
 }
 
 //tworzymy tablice z elementami w odwrotnej kolejnosci
-int **stworztablice(struct element*Lista)
+int *stworztablice(struct element*Lista)
 {
-    int **tab = (int**) malloc(sizeof(int*)*1);
-    *tab = (int*)malloc(sizeof(int)*5);
+    int *tab = (int*) malloc(sizeof(int*)*5);
     int j = 4;
     struct element*temp1=Lista;
     if (Lista==NULL)
         return NULL;
     while(temp1!=NULL)
     {
-        *(*(tab+0)+j) = temp1->i;
+        tab[j] = temp1->i;
         j--;
         temp1=temp1->next;
     }
@@ -360,10 +359,10 @@ int main()
     wyswietlListeBezGlowy(l2);
 
     printf("\ntablica : %p", stworztablice(l7));
-    int **tablica1 = stworztablice(l2);
+    int *tablica1 = stworztablice(l2);
     for(int j=0;j<5;j++)
     {
-        printf("\n%d", *(*(tablica1+0)+j));
+        printf("\n%d", tablica1[j]);
     }
     return 0;
 }
