@@ -71,6 +71,14 @@ void podamnieparzyste(unsigned int n)
     if(n%2!=0) printf("\n%d",n);
     podamnieparzyste(n-1);
 }
+
+int rekurencja1(unsigned int n)
+{
+    if(n==0) return 1;
+    if(n==1) return 2;
+    if(n%2==0) return rekurencja1(n-1) + 2;
+    return rekurencja1(n-2)*3;
+}
 int main()
 {
     printf("wynik: %d", rekurencja(0));
@@ -81,9 +89,10 @@ int main()
     printf("\nszescian: %d", szescian(4));
     printf("\nsuma podzielnych przez 6 i 7: %d", sumapodzprzez6i7(10));
     printf("\nrekurencja 5: %d", rek5(3));
-    unsigned int liczba;
-    printf("\npodaj liczbe nieujemna wieksza od 1: ");
-    scanf("%d", &liczba);
-    podamnieparzyste(liczba);
+    //unsigned int liczba;
+    //printf("\npodaj liczbe nieujemna wieksza od 1: ");
+    //scanf("%d", &liczba);
+    //podamnieparzyste(liczba);
+    printf("\nrekurencja1: %d", rekurencja1(5));
     return 0;
 }

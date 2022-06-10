@@ -275,8 +275,25 @@ int rowneszesciany(struct element*Lista1, struct element*Lista2 )
     else
         return 0;
 }
-//mnozymy kazdy element przez liczbe w
 
+//tworzymy tablice z elementami w odwrotnej kolejnosci
+int **stworztablice(struct element*Lista)
+{
+    int **tab = (int**) malloc(sizeof(int*)*1);
+    *tab = (int*)malloc(sizeof(int)*5);
+    int j = 4;
+    struct element*temp1=Lista;
+    if (Lista==NULL)
+        return NULL;
+    while(temp1!=NULL)
+    {
+        *(*(tab+0)+j) = temp1->i;
+        j--;
+        temp1=temp1->next;
+    }
+    return tab;
+}
+//mnozymy kazdy element przez liczbe w
 struct element* pomnoz(struct element*Lista, int w)
 {
     struct element * wsk=Lista;
@@ -326,6 +343,7 @@ int main()
     printf("\n------------------------\n");
 
     struct element* l5 = utworz();
+    struct element* l7 = utworz();
     l5 = dodaj(l5,11);
     l5 = dodaj(l5,10);
     l5 = dodaj(l5,1);
@@ -337,5 +355,15 @@ int main()
     wyswietlListeBezGlowy(l2);
     printf("\nnajmniejszy ujemny : %d", najniepuj(l2));
 
+    //tworzymy tablice
+    printf("\n------------------------\n");
+    wyswietlListeBezGlowy(l2);
+
+    printf("\ntablica : %p", stworztablice(l7));
+    int **tablica1 = stworztablice(l2);
+    for(int j=0;j<5;j++)
+    {
+        printf("\n%d", *(*(tablica1+0)+j));
+    }
     return 0;
 }
