@@ -79,6 +79,22 @@ int rekurencja1(unsigned int n)
     if(n%2==0) return rekurencja1(n-1) + 2;
     return rekurencja1(n-2)*3;
 }
+//suma 3 + 33 + 333 ...
+int foo(int n){
+    if(n==1){
+        return 3;
+    }
+    return foo(n-1)*10+3;
+}
+int fooo(int n){
+    int suma = 0;
+    for(int i=1;i<n+1;i++){
+        suma += foo(i);
+    }
+    return suma;
+}
+
+
 int main()
 {
     printf("wynik: %d", rekurencja(0));
@@ -93,6 +109,7 @@ int main()
     //printf("\npodaj liczbe nieujemna wieksza od 1: ");
     //scanf("%d", &liczba);
     //podamnieparzyste(liczba);
+    printf("\n%d",fooo(3));
     printf("\nrekurencja1: %d", rekurencja1(5));
     return 0;
 }
