@@ -200,6 +200,33 @@ int rowneszesciany(struct element*Lista1, struct element*Lista2 )
         return 1;
     return 0;
 }
+//usun ostatni element ujemny
+void usunujeost(struct element* Lista)
+{
+    int ujemny;
+    struct element*wsk=Lista;
+    struct element*wsk1=Lista;
+    struct element*wsk2;
+
+    while(wsk->next!=NULL)
+    {
+        if(wsk->next->i < 0)
+        {
+            ujemny = wsk->next->i;
+        }
+        wsk=wsk->next;
+    }
+    while((wsk1->next!=NULL)&&(wsk1->next->i != ujemny))
+    {
+        wsk1=wsk1->next;
+    }
+    if(wsk1->next!=NULL)
+    {
+        wsk2=wsk1->next;
+        wsk1->next=wsk2->next;
+        free(wsk2);
+    }
+}
 
 int main()
 {
@@ -208,7 +235,7 @@ int main()
     dodaj(l1,-4);
     dodaj(l1,-8);
     dodaj(l1,-2);
-    struct element * wsk = l1;
+    //struct element * wsk = l1;
     //while(wsk->next!=NULL)
     //{
     //    wsk=wsk->next;
@@ -229,10 +256,17 @@ int main()
 
     //tworzymy trzecia liste
     struct element* l3 = utworz();
-    dodaj(l3,4);
+    dodaj(l3,-4);
     dodaj(l3,5);
-    dodaj(l3,6);
+    dodaj(l3,-6);
+    dodaj(l3,7);
 
     printf("\nczy rowne szesciany: %d", rowneszesciany(l3,l2));
+
+    //usun ostatni ujemny
+    printf("\n-----------------\n");
+    wyswietlListeZGlowa(l3);
+    usunujeost(l3);
+    wyswietlListeZGlowa(l3);
     return 0;
 }

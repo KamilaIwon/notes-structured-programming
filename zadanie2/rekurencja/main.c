@@ -55,6 +55,22 @@ int sumapodzprzez6i7(unsigned int n)
 
 }
 
+int rek5( unsigned int n)
+{
+    if(n==0 || n==1) return 1;
+    if(n%2==0)
+    {
+        return rek5(n/2) + 1;
+    }
+    return rek5(n-1) + (n-1)/2;
+}
+
+void podamnieparzyste(unsigned int n)
+{
+    if(n==0) return;
+    if(n%2!=0) printf("\n%d",n);
+    podamnieparzyste(n-1);
+}
 int main()
 {
     printf("wynik: %d", rekurencja(0));
@@ -64,5 +80,10 @@ int main()
     parzyste(10);
     printf("\nszescian: %d", szescian(4));
     printf("\nsuma podzielnych przez 6 i 7: %d", sumapodzprzez6i7(10));
+    printf("\nrekurencja 5: %d", rek5(3));
+    unsigned int liczba;
+    printf("\npodaj liczbe nieujemna wieksza od 1: ");
+    scanf("%d", &liczba);
+    podamnieparzyste(liczba);
     return 0;
 }

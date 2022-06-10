@@ -28,6 +28,20 @@ int ileparzwdwoch(int **tab1, int**tab2, int n, int m)
     return ile1+ile2;
 }
 
+//liczy ile jest elementow parzystych ujemnych
+int ileparzystychujemnych(int **tab, int n, int m)
+{
+    int ile=0;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            if(*(*(tab+i)+j)%2==0 && *(*(tab+i)+j)<0)
+                ile++;
+        }
+    }
+    return ile;
+}
 //stworz nowa tablice elementow
 int **utworz(int n, int m)
 {
@@ -171,9 +185,9 @@ int main()
     *(tab4+1) = (int*)malloc(sizeof(int)*3); //przypisujemy pamiec
     *(*(tab4+0)+0) = -3;
     *(*(tab4+0)+1) = 0;
-    *(*(tab4+0)+2) = 2;
+    *(*(tab4+0)+2) = -2;
     *(*(tab4+1)+0) = 7;
-    *(*(tab4+1)+1) = 4;
+    *(*(tab4+1)+1) = -4;
     *(*(tab4+1)+2) = 0;
 
     //tworzymy tablice tablic za pomoca funkcji
@@ -230,5 +244,6 @@ int main()
     printf("--------\ntablica2:\n");
     showtable(tab4,2,3);
     printf("\nile jest razem parzystych elementow: %d", ileparzwdwoch(tab,tab4,2,3));
+    printf("\nile jest razem elementow ujemnych parzystych: %d", ileparzystychujemnych(tab4,2,3));
     return 0;
 }

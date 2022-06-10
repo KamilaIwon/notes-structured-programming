@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1654877853 source:d:\repo\powtorki---ps\zadanie1\debugger\debbug2\main.c
+	<stdio.h>
+	<stdlib.h>
+

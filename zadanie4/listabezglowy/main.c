@@ -85,6 +85,29 @@ int znajdzostniep(struct element*Lista)
     return niep;
 }
 
+//znajdz najmniejszy element ujemny
+int najniepuj(struct element*Lista)
+{
+    int niep = 0;
+    struct element*temp=Lista;
+    if(temp==NULL)
+    {
+        return 0;
+    }
+
+
+    while(temp!=NULL)
+    {
+        if((temp->i)<0 && temp->i<niep)
+        {
+            niep = temp->i;
+        }
+        temp=temp->next;
+    }
+    if(niep == 0) return 0;
+    return niep;
+}
+
 
 //czyszczenie listy
 struct element* wyczysc(struct element *Lista)
@@ -289,6 +312,8 @@ int main()
     l2 = dodaj(l2,-1);
     l2 = dodaj(l2,1);
     l2 = dodaj(l2,8);
+    l2 = dodaj(l2,-8);
+    l2 = dodaj(l2,-4);
     wyswietlListeBezGlowy(l2);
 
     struct element* l3 = utworz();
@@ -307,6 +332,10 @@ int main()
     wyswietlListeBezGlowy(l5);
     l5 = pomnoz(l5,4);
     wyswietlListeBezGlowy(l5);
+
+    printf("\n------------------------\n");
+    wyswietlListeBezGlowy(l2);
+    printf("\nnajmniejszy ujemny : %d", najniepuj(l2));
 
     return 0;
 }

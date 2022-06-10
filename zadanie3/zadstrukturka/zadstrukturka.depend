@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1654879568 source:d:\repo\powtorki---ps\zadanie3\zadstrukturka\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
