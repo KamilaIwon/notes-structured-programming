@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1653588496 source:d:\cwiczenia\powtorka\napisy\napisy\main.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<ctype.h>
-

@@ -13,10 +13,13 @@ void fun(int **tab, char * n, int m[])
     printf("\nabc");
 }
 
+//3
 void fun1 (int n, int(*wsk)(int a, int b))
 {
 
 }
+
+//4
 int funkcja(int a, int b)
 {
     return a+b;

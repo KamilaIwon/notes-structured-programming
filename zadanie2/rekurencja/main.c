@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
+//wzór
 int rekurencja(unsigned int a)
 {
     if(a==0 || a==1)
@@ -15,6 +16,7 @@ int rekurencja(unsigned int a)
     return rekurencja(a-1) - (a-1)/2;
 }
 
+//zadanie dodatkowe
 unsigned int task_6(unsigned int n) {
   if (n == 0 || n == 1) {
     return 1;
@@ -24,13 +26,6 @@ unsigned int task_6(unsigned int n) {
   return task_6(n - 1) - (n - 1) / 2;
 }
 
-int rekurecja1(int n)
-{
-    if(n==0) return 0;
-    if(n==1) return 3;
-
-    return (3 * (pow(10,(n-1))) + rekurecja1(n-1)) + rekurecja1(n-1);
-}
 //wyswietla liczby parzyste od 1 do n
 void parzyste(unsigned int n)
 {
@@ -47,6 +42,7 @@ int szescian(int n)
 
 }
 
+// podaj sume liczb podzielnych przez 5 i 7 z przedzialu <1,n>
 int sumapodzprzez6i7(unsigned int n)
 {
     if(n==0) return 0;
@@ -54,7 +50,7 @@ int sumapodzprzez6i7(unsigned int n)
     return sumapodzprzez6i7(n-1);
 
 }
-
+//jakis tam wzor
 int rek5( unsigned int n)
 {
     if(n==0 || n==1) return 1;
@@ -65,6 +61,7 @@ int rek5( unsigned int n)
     return rek5(n-1) + (n-1)/2;
 }
 
+//wypisz liczby parzyste z przedzialu <0,n>
 void podamnieparzyste(unsigned int n)
 {
     if(n==0) return;
@@ -72,6 +69,7 @@ void podamnieparzyste(unsigned int n)
     podamnieparzyste(n-1);
 }
 
+//jakis tam wzor
 int rekurencja1(unsigned int n)
 {
     if(n==0) return 1;
@@ -94,13 +92,20 @@ int fooo(int n){
     return suma;
 }
 
+//zadanie z zerowki
+int zerowka(int n, float x)
+{
+    if(n==1) return 1;
+    if(n>1) return (pow(-1,n))*(pow(x,n)/n) + zerowka(n-1,x);
+    return 0;
+}
+
 
 int main()
 {
     printf("wynik: %d", rekurencja(0));
     printf("\nwynik: %d", rekurencja(3));
     printf("\nwynik: %d", task_6(3));
-    printf("\nwynik: %d", rekurecja1(1));
     parzyste(10);
     printf("\nszescian: %d", szescian(4));
     printf("\nsuma podzielnych przez 6 i 7: %d", sumapodzprzez6i7(10));
@@ -111,5 +116,6 @@ int main()
     //podamnieparzyste(liczba);
     printf("\n%d",fooo(3));
     printf("\nrekurencja1: %d", rekurencja1(5));
+    printf("\nzerowka: %d", zerowka(1,2));
     return 0;
 }
