@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+// tworzymy struktury
 typedef struct osoba
 {
     char imie[20];
@@ -16,8 +16,8 @@ typedef struct ksiazka
     float ocena;
 }ksiazka;
 
-
-void wiekszy(int n, osoba tab[n])
+//podaj imie najwyzszej osoby
+char * wiekszy(int n, osoba tab[n])
 {
     float najw = 0;
     int naj=0;
@@ -29,9 +29,9 @@ void wiekszy(int n, osoba tab[n])
             najw=tab[i].wzrost;
         }
     }
-    printf("%s",tab[naj].imie);
+    return tab[naj].imie;
 }
-
+// podaj autora z najwieksza ocen¹
 char * wiekszy1(int n, ksiazka tab[n])
 {
     int zapamietaj;
@@ -56,11 +56,12 @@ int main()
     strcpy(tab[1].imie,"Ala");
     tab[1].wiek=10;
     tab[1].wzrost=1.66;
-    wiekszy(2,tab);
+    printf("wyzsza osoba: %s\n", wiekszy(2,tab));
+
 
     ksiazka k1 = {"Jan Kowal", 1996, 5.56};
     ksiazka k2 = {"Ania Kot", 2001, 7.39};
     ksiazka tab2[2] = {k1, k2};
-    printf("\nautor najlepiej ocenianej ksiazki: %s", wiekszy1(2,tab2));
+    printf("\nautor najlepiej ocenianej ksiazki: %s\n", wiekszy1(2,tab2));
     return 0;
 }
